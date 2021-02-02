@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class, 100)->create()->each(
+        factory(Category::class, 10)->create()->each(
             function($category){
                 $category->save();
             }
