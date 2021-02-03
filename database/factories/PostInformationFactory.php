@@ -10,7 +10,7 @@ $factory->define(PostInformation::class, function (Faker $faker) {
     $postIDs = DB::table('posts')->pluck('id');
 
     return [
-        'post_id'=>$faker->randomElement($postIDs),
+        'post_id'=>$faker->unique()->randomElement($postIDs),
         'description'=>$faker->text(),
         'slug'=>$faker->slug,
     ];
