@@ -47,7 +47,7 @@ class PostsController extends Controller
         $newPost = Post::create([
             "title" => $data["title"],
             "author" => $data["author"],
-            "category_id" => $data["category"]
+            "category_id" => $data["category_id"]
         ]);
 
         $newPost->save();

@@ -10,19 +10,24 @@
         @method('Post')
 
         <label for="title">Titolo</label>
-        <input type="text" name="title" class="form-control" id="title" placeholder="title" 
+        <input type="text" name="title" class="form-control" id="title" placeholder="titolo" 
         value="">
 
         <label for="author">Autore</label>
-        <input type="text" name="author" class="form-control" id="author" placeholder="title" 
+        <input type="text" name="author" class="form-control" id="author" placeholder="autore" 
         value="">
 
-        <label for="category">Categoria</label>
-        <input type="text" name="category" class="form-control" id="title" placeholder="category"
-        value="">
+        <label>Categoria</label>
+        <select name="category_id" id="">
+            <option>...</option>
+            @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{$category->title}}</option>
+                
+            @endforeach
+        </select>
 
         <label for="description">Descrizione</label>
-        <input type="text" name="description" class="form-control" id="description" placeholder="Room"
+        <input type="text" name="description" class="form-control" id="description" placeholder="Descrizione"
         value="">
 
         <fieldset>
