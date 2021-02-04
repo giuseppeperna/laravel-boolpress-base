@@ -3,8 +3,8 @@
 @section('title', 'Posts')
 
 @section('main')
-<div>
-    <a href="{{ route('posts.create') }}">Crea nuovo post</a>
+<div class="create-new">
+    <a  href="{{ route('posts.create') }}">Crea nuovo post</a>
 </div> 
 <div>
     @foreach ($posts as $post)
