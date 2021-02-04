@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\PostInformation;
 use App\Category;
 use App\Tag;
 
@@ -41,7 +42,29 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newPost = Post::create([
+            "title" => $data["title"],
+            "author" => $data["author"],
+            "category_id" => $data["category"]
+        ]);
+
+        $newPost->save();
+
+        $postInfo = PostInformation::create([
+            "post_id" => $newPost->id,
+            "description" => $data["description"],
+            "slug" => "lorem-ipsum"
+        ]);
+
+        $postInfo->save();
+
+        foreach ($data["tags"] as $tag){
+            $newPost->tags()->attach($tag);
+        }
+
+
+        return redirect()->route('posts.index');
     }
 
     /**

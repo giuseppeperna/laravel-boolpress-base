@@ -3,9 +3,7 @@
 @section('title', 'Edit')
 
 @section('main')
-{{-- <div class="cta-homepage">
-    <a href="/">Homepage</a>
-</div> --}}
+
 <form method="POST" action="{{route('posts.update', $post['id'])}}">
     <div class="form-group container-form">
         @csrf

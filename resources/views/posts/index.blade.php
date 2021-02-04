@@ -4,6 +4,9 @@
 
 @section('main')
 <div>
+    <a href="{{ route('posts.create') }}">Crea nuovo post</a>
+</div> 
+<div>
     @foreach ($posts as $post)
     <div class="post-container">
         <h3>Title: {{ $post->title }}</h3>
