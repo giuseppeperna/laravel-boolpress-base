@@ -17,9 +17,18 @@
         <input type="text" name="author" class="form-control" id="author" placeholder="title" 
         value="{{$post->author}}">
 
-        <label for="category">Categoria</label>
+        <label>Categoria</label>
+        <select name="category_id" id="">
+            <option>...</option>
+            @foreach ($categories as $category)
+            <option {{ $post->categories->id == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{$category->title}}</option>
+                
+            @endforeach
+        </select>
+
+        {{-- <label for="category">Categoria</label>
         <input type="text" name="category" class="form-control" id="category" placeholder="category"
-        value="{{$post->categories->title}}">
+        value="{{$post->categories->title}}"> --}}
 
         <label for="description">Descrizione</label>
         <input type="text" name="description" class="form-control" id="description" placeholder="Room"

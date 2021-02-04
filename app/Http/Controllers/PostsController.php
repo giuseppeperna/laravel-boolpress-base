@@ -112,8 +112,6 @@ class PostsController extends Controller
     {
         $data = $request->all();
 
-
-
         $post->update($data);
 
         $post->postInfo->update($data);
