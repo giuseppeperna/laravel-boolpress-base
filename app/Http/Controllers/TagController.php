@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\Category;
 use App\Tag;
 
-class PostsController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        $tags = Tag::all();
+        return view('tags.index', compact('tags'));
     }
 
     /**
@@ -27,10 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
-
-        return view('posts.create', compact('categories', 'tags'));
+        //
     }
 
     /**
@@ -52,12 +47,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        $info = $post->postInfo;
-        $category = $post->categories;
-
-        return view('posts.show', compact('post', 'info', 'category'));
-
+        $tag = Tag::find($id);
+        return view('tags.show', compact('tag'));
     }
 
     /**
@@ -66,15 +57,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        $data = [
-            'categories' => Category::all(),
-            'post' => $post,
-            'tags' => Tag::all()
-        ];
-
-        return view('posts.edit', $data);
+        //
     }
 
     /**
@@ -84,15 +69,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $post->update($data);
-
-        $post->postInfo->update($data);
-
-        return redirect()->route('posts.index');
+        //
     }
 
     /**
@@ -103,15 +82,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post->postInfo->delete();
-        
-        foreach ($post->tags as $tag){
-            
-            $post->tags()->detach($tag->id);
-        }
-        $post->delete();
-
-        return redirect()->route('posts.index');
+        //
     }
 }
