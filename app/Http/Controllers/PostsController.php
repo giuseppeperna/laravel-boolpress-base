@@ -8,6 +8,7 @@ use App\PostInformation;
 use App\Category;
 use App\Tag;
 
+
 class PostsController extends Controller
 {
     /**
