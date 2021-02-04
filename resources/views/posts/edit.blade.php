@@ -18,7 +18,7 @@
         value="{{$post->author}}">
 
         <label for="category">Categoria</label>
-        <input type="text" name="title" class="form-control" id="title" placeholder="category"
+        <input type="text" name="category" class="form-control" id="category" placeholder="category"
         value="{{$post->categories->title}}">
 
         <label for="description">Descrizione</label>
