@@ -26,10 +26,6 @@
             @endforeach
         </select>
 
-        {{-- <label for="category">Categoria</label>
-        <input type="text" name="category" class="form-control" id="category" placeholder="category"
-        value="{{$post->categories->title}}"> --}}
-
         <label for="description">Descrizione</label>
         <input type="text" name="description" class="form-control" id="description" placeholder="Room"
         value="{{$post->postInfo->description}}">

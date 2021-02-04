@@ -111,10 +111,13 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
-
+        $post->tags()->detach();
         $post->update($data);
 
         $post->postInfo->update($data);
+        foreach ($data["tags"] as $tag) {
+            $post->tags()->attach($tag);
+        }
 
         return redirect()->route('posts.index');
     }
