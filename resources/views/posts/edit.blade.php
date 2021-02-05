@@ -34,7 +34,10 @@
             <legend>Tags</legend>
             @foreach($tags as $tag)
                 <div class="tags-container">
-                    <input type="checkbox" id ="{{$tag->name . '_check'}}"name="tags[]" value="{{ $tag->id }}">
+                    <input type="checkbox" id ="{{$tag->name . '_check'}}"name="tags[]" value="{{ $tag->id }}" 
+                    @foreach ($post->tags as $postTag)
+                        @if($tag->id == $postTag->id) checked @endif
+                    @endforeach>
                     <label for="{{$tag->name . '_check'}}"> {{ $tag->name }}</label>
                 </div>
             @endforeach
