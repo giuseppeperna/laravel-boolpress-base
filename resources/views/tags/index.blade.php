@@ -18,5 +18,8 @@
         </td>
     </tr>
     @endforeach
-  </table>
+</table>
+<div class="go-back">
+  <a href="{{ route('posts.index')}}">Homepage</a>
+</div>
 @endsection
