@@ -18,14 +18,14 @@
         value="{{$post->author}}">
 
         <label>Categoria</label>
-        <select name="category_id" id="">
-            <option>...</option>
-            @foreach ($categories as $category)
-            <option {{ $post->categories->id == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{$category->title}}</option>
-                
-            @endforeach
-        </select>
-
+        <div class="categories">
+            <select name="category_id" id="">
+                <option>...</option>
+                @foreach ($categories as $category)
+                <option {{ $post->categories->id == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{$category->title}}</option>        
+                @endforeach
+            </select>
+        </div>
         <label for="description">Descrizione</label>
         <input type="text" name="description" class="form-control" id="description" placeholder="Room"
         value="{{$post->postInfo->description}}">
@@ -33,7 +33,7 @@
         <fieldset>
             <legend>Tags</legend>
             @foreach($tags as $tag)
-                <div>
+                <div class="tags-container">
                     <input type="checkbox" id ="{{$tag->name . '_check'}}"name="tags[]" value="{{ $tag->id }}">
                     <label for="{{$tag->name . '_check'}}"> {{ $tag->name }}</label>
                 </div>
@@ -42,7 +42,10 @@
 
     </div>
     <div class="submit-container">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">Modifica</button>
+    </div>
+    <div class="go-back">
+        <a href="{{ route('posts.show', $post->id)}}">Indietro</a>
     </div>
 </form>
 @endsection

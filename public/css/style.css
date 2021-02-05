@@ -18,8 +18,10 @@
 }
 
 .post-details {
-    width:90%;
-    margin: auto;
+    width:80%;
+    max-width: 1600px;
+    margin: 50px auto 20px auto;
+    text-align: center;
 }
 
 .post-details th {
@@ -28,14 +30,17 @@
     text-align: center;
     background-color: #2343ac;
     color: white;
+    border: 1px solid black;
 }
 
 .post-details tr {
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(238, 238, 238);
+    border: 1px solid black;
 }
 
 .post-details td {
     padding: 10px;
+    border: 1px solid black;
 }
 
 .go-back {
@@ -44,32 +49,59 @@
 }
 
 .go-back a {
-    border: 2px solid #200cd9;
+    border: 2px solid #2343ac;
     padding: 5px 10px;
     border-radius: 8px;
     text-decoration: none;
-    color: #200cd9;
+    color: #2343ac;
 }
 
 .go-back a:hover {
-    background-color: #200cd9;
+    background-color:#2343ac;
     color: white;
 }
 
-.create-new {
-    text-align: center;
-    margin: 45px 0;
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.create-new a {
-    border: 2px solid #200cd9;
-    padding: 5px 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #200cd9;
+.container-form {
+    width: 70%;
+    margin: auto;
+    margin-top: 40px;
 }
 
-.create-new a:hover {
-    background-color: #200cd9;
-    color: white;
+.container-form input {
+    margin-bottom: 20px;
+}
+
+.container-form label {
+    color: #2343ac;
+}
+
+.container-form .categories {
+    margin-bottom: 25px;
+}
+
+.categories select {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.tags-container {
+    display: inline;
+}
+
+.tags-container label {
+    margin-right: 15px;
+}
+
+.submit-container {
+    width:70%;
+    margin: auto;
+    margin-top: 35px;
 }

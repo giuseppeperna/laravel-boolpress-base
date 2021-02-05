@@ -3,18 +3,30 @@
 @section('title', 'Posts')
 
 @section('main')
-<div class="create-new">
-    <a  href="{{ route('posts.create') }}">Crea nuovo post</a>
-</div> 
-<div>
+
+<table class="post-details">
+    <tr>
+        <th>Id</th>
+        <th>Titolo</th>
+        <th>Autore</th>
+        <th>Slug</th>
+        <th><a class="btn btn-success" href="{{ route('posts.create') }}">Crea nuovo post</a></th>
+    </tr>
+    
     @foreach ($posts as $post)
-    <div class="post-container">
-        <h3>Title: {{ $post->title }}</h3>
-        <span>Author: {{ $post->author }}</span>
-        <div>
+    <tr>
+        <td>{{ $post->id }}</td>
+        <td>{{ $post->title }}</td>
+        <td>{{ $post->author }}</td>
+        <td>{{ $post->postInfo['slug'] }}</td>
+        <td>
             <a href="{{ route('posts.show', $post->id) }}">Dettagli</a>
-        </div> 
-    </div>
-    @endforeach  
+        </td>
+    </tr>
+    @endforeach
+</table>
+
+<div class="pagination">
+    {{ $posts->links() }}
 </div>
 @endsection
