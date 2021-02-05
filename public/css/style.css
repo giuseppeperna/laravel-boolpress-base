@@ -105,3 +105,16 @@
     margin: auto;
     margin-top: 35px;
 }
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: auto;
+    padding-top: 25px;
+}
+
+.search-bar * {
+    margin-right: 8px;
+}

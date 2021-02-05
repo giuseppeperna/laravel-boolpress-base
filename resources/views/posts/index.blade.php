@@ -4,6 +4,15 @@
 
 @section('main')
 
+
+<form class="search-bar" method="get" action="{{ route('posts.index')}}">
+    @csrf
+    <input type="text" class="form-control" name="search" placeholder="Cerca...">
+    <button class="btn btn-success" type="submit">Trova</button>
+    <a class="btn btn-danger" href="{{ route('posts.index')}}">Cancella</a>
+</form>
+
+
 <table class="post-details">
     <tr>
         <th>Id</th>
@@ -26,7 +35,10 @@
     @endforeach
 </table>
 
+@if(!$search)
 <div class="pagination">
     {{ $posts->links() }}
 </div>
+@endif
+
 @endsection
