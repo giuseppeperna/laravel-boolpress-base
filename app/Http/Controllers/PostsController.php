@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\PostInformation;
 use App\Category;
 use App\Tag;
+use Faker\Generator as Faker;
 
 
 class PostsController extends Controller
@@ -48,7 +50,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Faker $faker)
     {
         $data = $request->all();
         $newPost = Post::create([
@@ -62,7 +64,7 @@ class PostsController extends Controller
         $postInfo = PostInformation::create([
             "post_id" => $newPost->id,
             "description" => $data["description"],
-            "slug" => "lorem-ipsum"
+            "slug" => $faker->slug
         ]);
 
         $postInfo->save();
