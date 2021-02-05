@@ -119,7 +119,7 @@ class PostsController extends Controller
             $post->tags()->attach($tag);
         }
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post);
     }
 
     /**
