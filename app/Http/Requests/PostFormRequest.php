@@ -25,7 +25,7 @@ class PostFormRequest extends FormRequest
     {
         return [
             'title' => 'bail|required|min:3',
-            'author' => 'bail|required|alpha',
+            'author' => 'bail|required|string',
             'category_id' => 'required|not_in:...',
             'description' => 'bail|required|between:5,180',
             'tags' => 'required'

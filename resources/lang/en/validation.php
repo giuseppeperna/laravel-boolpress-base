@@ -136,7 +136,7 @@ return [
         ],
         'author' => [
             'required' => 'Inserire un :attribute.',
-            'alpha' => 'Il campo :attribute può contenere solo lettere.'
+            'string' => 'Il campo :attribute può contenere solo testo.'
         ],
         'category_id' => [
             'required' => 'Inserire una :attribute.',
