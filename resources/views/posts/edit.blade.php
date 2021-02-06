@@ -10,12 +10,18 @@
         @method('Put')
 
         <label for="title">Titolo</label>
-        <input type="text" name="title" class="form-control" id="title" placeholder="title" 
+        <input type="text" name="title" class="form-control" id="title" placeholder="TItolo" 
         value="{{$post->title}}">
+        @error('title')
+            <p>{{ $message }}</p>
+        @enderror
 
         <label for="author">Autore</label>
-        <input type="text" name="author" class="form-control" id="author" placeholder="title" 
+        <input type="text" name="author" class="form-control" id="author" placeholder="Autore" 
         value="{{$post->author}}">
+        @error('author')
+            <p>{{ $message }}</p>
+        @enderror
 
         <label>Categoria</label>
         <div class="categories">
@@ -25,10 +31,16 @@
                 <option {{ $post->categories->id == $category->id ? 'selected' : ''}} value="{{ $category->id }}">{{$category->title}}</option>        
                 @endforeach
             </select>
+            @error('category_id')
+            <p>{{ $message }}</p>
+            @enderror
         </div>
         <label for="description">Descrizione</label>
-        <input type="text" name="description" class="form-control" id="description" placeholder="Room"
+        <input type="text" name="description" class="form-control" id="description" placeholder="Descrizione"
         value="{{$post->postInfo->description}}">
+        @error('description')
+            <p>{{ $message }}</p>
+        @enderror
 
         <fieldset>
             <legend>Tags</legend>
@@ -42,6 +54,9 @@
                 </div>
             @endforeach
         </fieldset>
+        @error('tags')
+            <p>{{ $message }}</p>
+        @enderror
 
     </div>
     <div class="submit-container">

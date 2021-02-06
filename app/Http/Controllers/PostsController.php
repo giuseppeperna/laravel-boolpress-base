@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PostFormRequest;
 use App\Post;
 use App\PostInformation;
 use App\Category;
@@ -50,9 +50,9 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Faker $faker)
+    public function store(PostFormRequest $request, Faker $faker)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $newPost = Post::create([
             "title" => $data["title"],
             "author" => $data["author"],
@@ -117,9 +117,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostFormRequest $request, Post $post)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $post->tags()->detach();
         $post->update($data);
 
